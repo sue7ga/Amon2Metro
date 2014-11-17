@@ -1,0 +1,22 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+ <ul class="nav nav-tabs" role="tablist">
+  <li class="active"><a href="/traininfo">Home</a></li>
+  <li><a href="/traininfo/TokyoMetro.Hibiya">日比谷線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Chiyoda">千代田線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Marunouchi">丸ノ内線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Ginza">銀座線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Tozai">東西線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Yurakucho">有楽町</a></li>
+  <li><a href="/traininfo/TokyoMetro.Hanzomon">半蔵門</a></li>
+  <li><a href="/traininfo/TokyoMetro.Namboku">南北線</a></li>
+  <li><a href="/traininfo/TokyoMetro.Fukutoshin">副都心線</a></li>
+ </ul>
+
+<div class="jumbotron">
+  <p><: $infotext :></p>
+</div>
+
+: }

@@ -1,0 +1,56 @@
+: cascade "include/layout.tx"
+
+: override content -> {
+
+<select id="from">
+ : for $lineinfo -> $line{
+    <optgroup label="<: $line.linename :>"><br/>
+   : for $line.station -> $station{
+     <option value="<: $station.eng :>"><: $station.jap :></option>
+   : }
+ : }
+</select>
+
+<select id="to">
+ : for $lineinfo -> $line{
+    <optgroup label="<: $line.linename :>"><br/>
+   : for $line.station -> $station{
+     <option value="<: $station.eng :>"><: $station.jap :></option>
+   : }
+ : }
+</select>
+
+ <input type="button" value="運賃を調べる" id="get_val"><br/>
+  
+<div class="jumbotron">
+  <div class="container">    
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+ $("#get_val").on("click",function(){
+   var from = $("#from option:selected").val();
+   var to = $("#to option:selected").val();
+   $.ajax({
+    type: 'GET',
+    url: '/js/fare',
+    datatype: 'json',
+    data: {
+     from:from,
+      to:to
+   },
+   success: function(json){
+     $(".jumbotron").text(json.fare);
+   },
+   error: function(){
+    alert('error');
+   }
+});
+});
+});
+</script>
+  
+
+
+: }
